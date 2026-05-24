@@ -63,15 +63,18 @@ export default function ActivityLogs() {
   };
 
   // initial load
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { fetchLogs(1, '', '', ''); }, []);
 
   // search debounce
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const timer = setTimeout(() => { fetchLogs(1, searchInput, dateFrom, dateTo); }, 400);
     return () => clearTimeout(timer);
   }, [searchInput]);
 
   // date filters — fire immediately with new values
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchLogs(1, searchInput, dateFrom, dateTo);
   }, [dateFrom, dateTo]);

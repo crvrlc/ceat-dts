@@ -255,6 +255,7 @@ export default function DocumentDetails() {
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { fetchDocument(); }, [trackingNumber]);
 
   const fetchDocument = async () => {
