@@ -162,6 +162,7 @@ export default function SubmittedDocuments() {
   }, [isStudent]);
 
   // Staff: fetch on filter/page change
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!isStudent) fetchDocuments();
   }, [isStudent, filters, currentPage]);

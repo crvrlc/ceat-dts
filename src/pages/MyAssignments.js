@@ -163,7 +163,6 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function MyAssignments() {
-  const { user, isAdmin } = useAuth();
   const navigate = useNavigate();
 
   const [allDocuments, setAllDocuments] = useState([]);

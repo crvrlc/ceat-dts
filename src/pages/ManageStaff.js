@@ -17,7 +17,6 @@ export default function ManageStaff() {
   const [newStaffPosition, setNewStaffPosition] = useState('');
   const [newStaffRole, setNewStaffRole] = useState('staff');
   const [addLoading, setAddLoading] = useState(false);
-  const [error, setError] = useState('');
 
   useEffect(() => { fetchData(); }, []);
 
@@ -30,7 +29,6 @@ export default function ManageStaff() {
       ]);
       setStaff(staffRes.data.users);
       setPreRegistered(regRes.data.registrations);
-      setError('');
     } catch (err) {
       toast.error(err.response?.data?.message || 'Failed to fetch data');
     } finally {
@@ -110,7 +108,6 @@ export default function ManageStaff() {
   };
 
   const pendingRegistrations = preRegistered.filter(r => !r.isUsed);
-  const formatDate = (date) => new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 
   return (
     <div className="mst-page">

@@ -11,7 +11,7 @@ export default function LoginPage() {
   const [status, setStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
   
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const token = searchParams.get('token');
     const error = searchParams.get('error');

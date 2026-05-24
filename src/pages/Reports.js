@@ -107,6 +107,7 @@ export default function Reports() {
     init();
   }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (filters.semesterId !== undefined) fetchReports();
   }, [filters]);
@@ -184,7 +185,6 @@ export default function Reports() {
 
   const totalDocs = overview?.totalDocuments ?? 0;
   const totalStudents = studentStats.active + studentStats.pending;
-  const activePct = totalStudents > 0 ? Math.round((studentStats.active / totalStudents) * 100) : 0;
 
   if (loading && !overview) {
     return (
