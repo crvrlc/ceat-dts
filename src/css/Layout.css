@@ -1,0 +1,42 @@
+.main-content {
+  margin-left: 220px;
+  padding: 20px;
+  padding-top: 84px; 
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.collapsed {
+  margin-left: 60px;
+}
+
+.main-content.full {
+  margin-left: 0;
+}
+
+.main-content.student {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+.main-content.staff,
+.main-content.admin {
+  margin-left: 220px;
+}
+
+.main-content.staff.collapsed,
+.main-content.admin.collapsed {
+  margin-left: 60px;
+}
+
+@media (max-width: 768px) {
+  .main-content,
+  .main-content.staff,
+  .main-content.admin,
+  .main-content.collapsed,
+  .main-content.staff.collapsed,
+  .main-content.admin.collapsed {
+    margin-left: 0 !important;
+    padding-top: 84px;
+  }
+}

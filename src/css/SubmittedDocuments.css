@@ -1,0 +1,569 @@
+/* ─── UP Color Palette ───────────────────────────────────────────────────────
+   Maroon:  #7b1113
+   Green:   #236a27
+   Gold:    #f5a800
+──────────────────────────────────────────────────────────────────────────── */
+
+/* ─── Page Layout ─────────────────────────────────────────────────────────── */
+
+.sd-page {
+  padding: 32px 24px;
+}
+
+.sd-page--student {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── Header ──────────────────────────────────────────────────────────────── */
+
+.sd-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sd-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #7b1113;
+  margin: 0 0 4px 0;
+}
+
+.sd-count {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.sd-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #236a27;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sd-submit-btn:hover {
+  background: #1a5c1e;
+}
+
+/* ─── Filters ─────────────────────────────────────────────────────────────── */
+
+.sd-filters {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.sd-filters__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sd-filter-input {
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  color: #374151;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.15s;
+  appearance: auto;
+  flex-shrink: 0;
+  min-width: 0;
+  width: 148px;
+}
+
+.sd-filter-input--search {
+  width: 210px;
+}
+
+.sd-filter-input--type {
+  width: 180px;
+}
+
+.sd-filter-input--staff {
+  width: 160px;
+}
+
+.sd-filter-input:focus {
+  border-color: #7b1113;
+  background: #fff;
+}
+
+.sd-clear-btn {
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 7px;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sd-clear-btn--active {
+  border-color: #7b1113;
+  color: #7b1113;
+}
+
+.sd-clear-btn--active:hover {
+  background: #f5e6e8;
+}
+
+.sd-clear-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* ─── Table Card ──────────────────────────────────────────────────────────── */
+
+.sd-table-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.sd-table-wrapper {
+  overflow-x: auto;
+}
+
+.sd-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* Header */
+.sd-table thead tr {
+  background: #fafafa;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.sd-table th {
+  padding: 13px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #4b5563;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* Rows */
+.sd-table tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background 0.1s;
+  cursor: pointer;
+}
+
+.sd-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.sd-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.sd-table__row--even {
+  background: #fafafa;
+}
+
+.sd-table__row--even:hover {
+  background: #f3f4f6;
+}
+
+.sd-table td {
+  padding: 13px 16px;
+  color: #374151;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+/* Cell specifics */
+.sd-tracking-code {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.sd-staff-name {
+  font-size: 14px;
+  color: #374151;
+}
+
+.sd-unassigned {
+  font-size: 13px;
+  color: #d1d5db;
+  font-style: italic;
+}
+
+.sd-date {
+  font-size: 14px;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+/* ─── Status Badge ────────────────────────────────────────────────────────── */
+
+.sd-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sd-status-badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ─── Type Badge ──────────────────────────────────────────────────────────── */
+
+.sd-type-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #f3f4f6;
+  color: #374151;
+  white-space: nowrap;
+}
+
+/* ─── Action Buttons ──────────────────────────────────────────────────────── */
+
+.sd-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.sd-btn-view {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1.5px solid #d1d5db;
+  background: #fff;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.sd-btn-view:hover {
+  border-color: #7b1113;
+  color: #7b1113;
+  background: #f5e6e8;
+}
+.sd-btn-receive {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1.5px solid #bbf7d0;
+  background: #fff;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #236a27;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.sd-btn-receive:hover {
+  background: #e6f2e7;
+  border-color: #236a27;
+}
+
+.sd-btn-delete {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1.5px solid #fecaca;
+  background: #fff;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #ef4444;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.sd-btn-delete:hover {
+  background: #fff5f5;
+  border-color: #ef4444;
+}
+
+/* ─── Loading ─────────────────────────────────────────────────────────────── */
+
+.sd-loading {
+  padding: 48px;
+  text-align: center;
+  font-size: 15px;
+  color: #6b7280;
+}
+
+/* ─── Empty State ─────────────────────────────────────────────────────────── */
+
+.sd-empty {
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.sd-empty__icon {
+  margin-bottom: 8px;
+  opacity: 0.5;
+}
+
+.sd-empty__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+}
+
+.sd-empty__sub {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+  text-align: center;
+}
+
+/* ─── Pagination ──────────────────────────────────────────────────────────── */
+
+.sd-pagination-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-top: 1px solid #f3f4f6;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sd-pagination-info {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.sd-pagination {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sd-page-btn {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 8px;
+  border-radius: 7px;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sd-page-btn:hover:not(:disabled) {
+  border-color: #7b1113;
+  color: #7b1113;
+  background: #f5e6e8;
+}
+
+.sd-page-btn--active {
+  background: #7b1113;
+  border-color: #7b1113;
+  color: #fff;
+  font-weight: 700;
+}
+
+.sd-page-btn--active:hover {
+  background: #7b1113 !important;
+  color: #fff !important;
+}
+
+.sd-page-btn--nav {
+  font-size: 13px;
+  padding: 0 14px;
+  color: #6b7280;
+}
+
+.sd-page-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.sd-page-ellipsis {
+  font-size: 14px;
+  color: #9ca3af;
+  padding: 0 4px;
+  user-select: none;
+}
+
+/* ─── Summary Cards ───────────────────────────────────────────────────────── */
+
+.sd-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sd-summary-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.sd-summary-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+
+.sd-summary-card__icon--total    { background: #f1f5f9; color: #475569; }
+.sd-summary-card__icon--progress { background: #ede9fe; color: #6d28d9; }
+.sd-summary-card__icon--done     { background: #e6f2e7; color: #236a27; }
+.sd-summary-card__icon--rejected { background: #fee2e2; color: #991b1b; }
+
+.sd-summary-card__body {
+  min-width: 0;
+}
+
+.sd-summary-card__value {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.sd-summary-card__value--rejected {
+  color: #991b1b;
+}
+
+.sd-summary-card__label {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .sd-page--staff {
+    margin-left: 0;
+  }
+
+  .sd-page {
+    padding: 16px;
+  }
+
+  .sd-filters {
+    padding: 16px;
+  }
+
+  .sd-filters__row {
+    gap: 8px;
+  }
+
+  .sd-filter-input,
+  .sd-filter-input--search,
+  .sd-filter-input--type,
+  .sd-filter-input--staff {
+    width: 100%;
+    flex: 1 1 calc(50% - 4px);
+    min-width: 140px;
+  }
+
+  .sd-clear-btn {
+    width: 100%;
+  }
+
+  .sd-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sd-submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sd-pagination-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sd-summary-grid {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .sd-filter-input,
+  .sd-filter-input--search,
+  .sd-filter-input--type,
+  .sd-filter-input--staff {
+    flex: 1 1 100%;
+  }
+}

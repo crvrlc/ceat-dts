@@ -1,0 +1,388 @@
+/* ─── Page Layout ─────────────────────────────────────────────────────────── */
+
+.mst-page {
+  padding: 32px 24px;
+}
+
+/* ─── Header ──────────────────────────────────────────────────────────────── */
+
+.mst-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.mst-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #7b1113;
+  margin: 0 0 4px 0;
+}
+
+.mst-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────────── */
+
+.mst-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  border: none;
+}
+
+.mst-btn--primary {
+  background: #236a27;
+  color: #fff;
+}
+
+.mst-btn--primary:hover:not(:disabled) { background: #1a5c1e; }
+
+.mst-btn--cancel {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+}
+
+.mst-btn--cancel:hover { background: #e5e7eb; color: #374151; }
+
+.mst-btn--full {
+  width: 100%;
+  justify-content: center;
+  height: 38px;
+}
+
+.mst-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ─── Form Card ───────────────────────────────────────────────────────────── */
+
+.mst-form-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.mst-form-card__label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 6px;
+}
+
+.mst-form-card__desc {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+.mst-form-grid {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.mst-field { display: flex; flex-direction: column; }
+.mst-field--btn { justify-content: flex-end; }
+
+.mst-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.mst-required { color: #dc2626; margin-left: 2px; }
+
+.mst-input,
+.mst-select {
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  color: #374151;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+  appearance: auto;
+}
+
+.mst-input:focus,
+.mst-select:focus {
+  border-color: #7b1113;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(123, 17, 19, 0.08);
+}
+
+/* ─── Table Card ──────────────────────────────────────────────────────────── */
+
+.mst-table-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.mst-table-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.mst-table-card__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.mst-table-card__sub {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.mst-table-wrapper { overflow-x: auto; }
+
+.mst-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.mst-table thead tr {
+  background: #fafafa;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.mst-table th {
+  padding: 13px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #4b5563;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.mst-table tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background 0.1s;
+}
+
+.mst-table tbody tr:last-child { border-bottom: none; }
+.mst-table tbody tr:hover { background: #f8fafc; }
+.mst-table__row--even { background: #fafafa; }
+.mst-table__row--even:hover { background: #f3f4f6; }
+
+.mst-table td {
+  padding: 13px 16px;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.mst-email { color: #6b7280; font-size: 13px; }
+.mst-unassigned { color: #d1d5db; }
+
+/* ─── Staff Info ──────────────────────────────────────────────────────────── */
+
+.mst-staff-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mst-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.mst-avatar--placeholder {
+  background: #e5e7eb;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ─── Role Badge ──────────────────────────────────────────────────────────── */
+
+.mst-role-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.mst-role-badge--admin { background: #fee2e2; color: #991b1b; }
+.mst-role-badge--staff { background: #dbeafe; color: #1e40af; }
+
+/* ─── Status Badge ────────────────────────────────────────────────────────── */
+
+.mst-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.mst-status-badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.mst-status-badge--active { background: #e6f2e7; color: #1a5c1e; }
+.mst-status-badge--active .mst-status-badge__dot { background: #236a27; }
+.mst-status-badge--inactive { background: #f3f4f6; color: #6b7280; }
+.mst-status-badge--inactive .mst-status-badge__dot { background: #9ca3af; }
+
+/* ─── Action Buttons ──────────────────────────────────────────────────────── */
+
+.mst-actions { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+
+.mst-btn-action {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  background: #fff;
+}
+
+.mst-btn-action--edit {
+  border: 1.5px solid #d1d5db;
+  color: #374151;
+}
+
+.mst-btn-action--edit:hover {
+  border-color: #7b1113;
+  color: #7b1113;
+  background: #f5e6e8;
+}
+
+.mst-btn-action--delete {
+  border: 1.5px solid #fecaca;
+  color: #ef4444;
+}
+
+.mst-btn-action--delete:hover { background: #fff5f5; border-color: #ef4444; }
+
+.mst-btn-action--deactivate {
+  border: 1.5px solid #fde68a;
+  color: #92400e;
+}
+
+.mst-btn-action--deactivate:hover { background: #fffbeb; border-color: #f59e0b; }
+
+.mst-btn-action--activate {
+  border: 1.5px solid #bbf7d0;
+  color: #166534;
+}
+
+.mst-btn-action--activate:hover { background: #f0fdf4; border-color: #22c55e; }
+
+.mst-btn-remove {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1.5px solid #fecaca;
+  background: #fff;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #ef4444;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.mst-btn-remove:hover { background: #fff5f5; border-color: #ef4444; }
+
+/* ─── Loading / Empty ─────────────────────────────────────────────────────── */
+
+.mst-loading {
+  padding: 48px;
+  text-align: center;
+  font-size: 15px;
+  color: #6b7280;
+}
+
+.mst-empty {
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.mst-empty__icon { margin-bottom: 8px; opacity: 0.5; }
+.mst-empty__title { font-size: 16px; font-weight: 600; color: #374151; margin: 0; }
+.mst-empty__sub { font-size: 14px; color: #6b7280; margin: 0; text-align: center; }
+
+/* ─── Spinner ─────────────────────────────────────────────────────────────── */
+
+.mst-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: mst-spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes mst-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .mst-page { padding: 16px; }
+  .mst-header { flex-direction: column; align-items: flex-start; }
+  .mst-btn { width: 100%; justify-content: center; }
+  .mst-form-grid { grid-template-columns: 1fr; }
+  .mst-btn--full { width: 100%; }
+  .mst-actions { flex-wrap: wrap; }
+}

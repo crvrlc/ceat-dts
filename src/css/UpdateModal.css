@@ -1,0 +1,289 @@
+/* ─── Modal Shell ─────────────────────────────────────────────────────────── */
+
+.um-modal-header {
+  border-bottom: 1px solid #f3f4f6;
+  padding: 20px 24px 16px;
+}
+
+.um-modal-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.um-modal-header .modal-title,
+.um-modal-header h4 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin: 0 !important;
+}
+
+.um-tracking-code {
+  font-weight: 600;
+  color: #374151;
+  font-size: 18px;
+}
+
+.um-modal-body {
+  padding: 24px;
+}
+
+/* ─── Alert ───────────────────────────────────────────────────────────────── */
+
+.um-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.um-alert--error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* ─── Fields ──────────────────────────────────────────────────────────────── */
+
+.um-field {
+  margin-bottom: 20px;
+}
+
+.um-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.um-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.um-required {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+.um-optional {
+  font-size: 12px;
+  font-weight: 400;
+  color: #9ca3af;
+  margin-left: 4px;
+}
+
+.um-hint {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 6px 0 0;
+}
+
+.um-select {
+  appearance: auto;
+}
+
+/* ─── Read-only display ───────────────────────────────────────────────────── */
+
+.um-readonly {
+  padding: 9px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #6b7280;
+  background: #f3f4f6;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ─── Inputs ──────────────────────────────────────────────────────────────── */
+
+.um-select,
+.um-textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  color: #374151;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+  box-sizing: border-box;
+}
+
+.um-select:focus,
+.um-textarea:focus {
+  border-color: #7b1113;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(123, 17, 19, 0.08);
+}
+
+.um-textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.6;
+}
+
+/* ─── File Upload ─────────────────────────────────────────────────────────── */
+
+.um-file-input {
+  display: none;
+}
+
+.um-file-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border: 1.5px dashed #d1d5db;
+  border-radius: 8px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.um-file-label:hover {
+  border-color: #7b1113;
+  background: #fff;
+}
+
+.um-file-icon {
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.um-file-text {
+  font-size: 14px;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ─── Checkbox ────────────────────────────────────────────────────────────── */
+
+.um-field--checkbox {
+  margin-bottom: 8px;
+}
+
+.um-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+  user-select: none;
+}
+
+.um-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: #7b1113;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ─── Actions ─────────────────────────────────────────────────────────────── */
+
+.um-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.um-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: none;
+  white-space: nowrap;
+}
+
+.um-btn--cancel {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+}
+
+.um-btn--cancel:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.um-btn--submit {
+  background: #236a27;
+  color: #fff;
+}
+
+.um-btn--submit:hover:not(:disabled) {
+  background: #1a5c1e;
+}
+
+.um-btn--submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ─── Spinner ─────────────────────────────────────────────────────────────── */
+
+.um-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: um-spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes um-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 576px) {
+  .um-modal-body {
+    padding: 16px;
+  }
+
+  .um-row {
+    grid-template-columns: 1fr;
+  }
+
+  .um-actions {
+    flex-direction: column-reverse;
+  }
+
+  .um-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

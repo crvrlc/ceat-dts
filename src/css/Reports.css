@@ -1,0 +1,524 @@
+/* ─── Page Layout ─────────────────────────────────────────────────────────── */
+
+.rp-page {
+  padding: 32px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── Header ──────────────────────────────────────────────────────────────── */
+
+.rp-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.rp-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #7b1113;
+  margin: 0 0 4px 0;
+}
+
+.rp-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ─── Filters ─────────────────────────────────────────────────────────────── */
+
+.rp-filters {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.rp-filters__row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.rp-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rp-filter-group--btn {
+  justify-content: flex-end;
+}
+
+.rp-filter-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.rp-filter-input {
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  color: #374151;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.15s;
+  appearance: auto;
+  min-width: 200px;
+}
+
+.rp-filter-input:focus { border-color: #7b1113; background: #fff; }
+.rp-filter-input:disabled { opacity: 0.4; cursor: not-allowed; background: #f3f4f6; }
+
+.rp-filter-hint {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 8px 0 0;
+}
+
+.rp-clear-btn {
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 7px;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.rp-clear-btn--active { border-color: #7b1113; color: #7b1113; }
+.rp-clear-btn--active:hover { background: #f5e6e8; }
+
+/* ─── Status Row ──────────────────────────────────────────────────────────── */
+
+.rp-status-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.rp-status-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.rp-status-chip--total {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+.rp-status-chip__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rp-status-chip__value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.rp-status-chip--total .rp-status-chip__value { color: #111827; }
+
+.rp-status-chip__label {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.rp-status-chip--total .rp-status-chip__label { color: #6b7280; }
+
+/* ─── Status Grid ─────────────────────────────────────────────────────────── */
+
+.rp-status-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.rp-status-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 8px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+  position: relative;
+}
+
+.rp-status-card--total {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+.rp-status-card__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-bottom: 6px;
+}
+
+.rp-status-card__value {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.rp-status-card--total .rp-status-card__value { color: #111827; }
+
+.rp-status-card__label {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.rp-status-card--total .rp-status-card__label { color: #6b7280; }
+
+/* ─── Cards ───────────────────────────────────────────────────────────────── */
+
+.rp-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.rp-card__header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.rp-card__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.rp-card__sub {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.rp-card__body {
+  padding: 20px;
+}
+
+.rp-card__body--no-pad {
+  padding: 0;
+}
+
+/* ─── Two Column Layout ───────────────────────────────────────────────────── */
+
+.rp-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.rp-two-col .rp-card { margin-bottom: 0; }
+
+/* ─── Donut Chart ─────────────────────────────────────────────────────────── */
+
+.rp-donut {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.rp-donut__center {
+  position: absolute;
+  left: 90px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.rp-donut__total {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.rp-donut__label {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.rp-donut__legend {
+  flex: 1;
+  min-width: 120px;
+}
+
+.rp-donut__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.rp-donut__legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rp-donut__legend-name {
+  font-size: 13px;
+  color: #374151;
+  flex: 1;
+}
+
+.rp-donut__legend-value {
+  font-size: 13px;
+  color: #111827;
+}
+
+/* ─── Tooltip ─────────────────────────────────────────────────────────────── */
+
+.rp-tooltip {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.rp-tooltip__label {
+  margin: 0 0 4px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.rp-tooltip__item { margin: 0; }
+
+/* ─── Chart Empty ─────────────────────────────────────────────────────────── */
+
+.rp-chart-empty {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  gap: 8px;
+}
+
+.rp-chart-empty p { margin: 0; font-size: 13px; }
+
+/* ─── Staff Table ─────────────────────────────────────────────────────────── */
+
+.rp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.rp-table thead tr {
+  background: #fafafa;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.rp-table th {
+  padding: 13px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #4b5563;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.rp-table tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background 0.1s;
+}
+
+.rp-table tbody tr:last-child { border-bottom: none; }
+.rp-table tbody tr:hover { background: #f8fafc; }
+.rp-table__row--even { background: #fafafa; }
+.rp-table__row--even:hover { background: #f3f4f6; }
+
+.rp-table td {
+  padding: 13px 16px;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.rp-table__name { font-weight: 600; }
+.rp-table__sub { font-size: 13px; color: #6b7280; }
+.rp-table__completed { font-weight: 600; color: #236a27; }
+.rp-unassigned { color: #d1d5db; font-style: italic; font-size: 13px; }
+
+/* ─── Role Badge ──────────────────────────────────────────────────────────── */
+
+.rp-role-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.rp-role-badge--admin { background: #fee2e2; color: #991b1b; }
+.rp-role-badge--staff { background: #dbeafe; color: #1e40af; }
+
+/* ─── Workload Bar ────────────────────────────────────────────────────────── */
+
+.rp-workload {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rp-workload__count {
+  font-weight: 600;
+  min-width: 20px;
+  font-size: 14px;
+}
+
+.rp-workload__bar {
+  flex: 1;
+  height: 6px;
+  background: #f3f4f6;
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 120px;
+}
+
+.rp-workload__fill {
+  height: 100%;
+  background: #7b1113;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+/* ─── Student Stats ───────────────────────────────────────────────────────── */
+.rp-student-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rp-student-stat-cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.rp-student-stat-card {
+  flex: 1;
+  min-width: 120px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+}
+
+.rp-student-stat-card--active {
+  background: #e6f2e7;
+  border-color: #a7d4aa;
+}
+
+.rp-student-stat-card--pending {
+  background: #fef6e0;
+  border-color: #f5d87a;
+}
+
+.rp-student-stat-card__value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.rp-student-stat-card__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 2px;
+}
+
+.rp-student-stat-card__hint {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ─── Loading ─────────────────────────────────────────────────────────────── */
+
+.rp-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  color: #9ca3af;
+  gap: 12px;
+}
+
+.rp-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #7b1113;
+  border-radius: 50%;
+  animation: rp-spin 0.8s linear infinite;
+}
+
+@keyframes rp-spin { to { transform: rotate(360deg); } }
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .rp-page { padding: 16px; }
+  .rp-two-col { grid-template-columns: 1fr; }
+  .rp-status-grid { grid-template-columns: repeat(4, 1fr); }
+  .rp-filter-input { min-width: 100%; }
+  .rp-filters__row { flex-direction: column; align-items: stretch; }
+  .rp-student-stat-cards { flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+  .rp-status-grid { grid-template-columns: repeat(2, 1fr); }
+}

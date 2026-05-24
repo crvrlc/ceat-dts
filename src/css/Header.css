@@ -1,0 +1,177 @@
+/* ── Base header ── */
+header.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 64px;
+  z-index: 1000;
+  background-color: #800000;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  overflow: visible;
+}
+
+/* ── Left section ── */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+/* ── Hamburger button ── */
+.header-menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+.header-menu-btn:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ── Logo ── */
+.header-logo {
+  height: 36px;
+  width: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ── Title ── */
+.header-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-bottom: 0;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-title-short {
+  display: none;
+}
+
+/* ── Right section ── */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* ── Student nav link ── */
+.header-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.header-nav-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  text-decoration: none;
+}
+
+/* ── User chip ── */
+.header-user-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ── Avatar circle ── */
+.header-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  flex-shrink: 0;
+}
+
+.header-username {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.header-chevron {
+  color: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+}
+
+/* ── Hide Bootstrap's default caret on Dropdown.Toggle ── */
+.header-user-chip::after {
+  display: none !important;
+}
+
+/* ── Dropdown menu ── */
+.header-dropdown-menu {
+  min-width: 140px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  padding: 4px;
+}
+
+.header-dropdown-menu .dropdown-item {
+  font-size: 0.9rem;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .header-title-full {
+    display: none;
+  }
+
+  .header-title-short {
+    display: inline;
+  }
+
+  .header-nav-label {
+    display: none;
+  }
+
+  .header-nav-link {
+    padding: 5px 8px;
+  }
+
+  .header-username {
+    display: none;
+  }
+}

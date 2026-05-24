@@ -1,0 +1,168 @@
+/* ─── Modal Shell ─────────────────────────────────────────────────────────── */
+
+.stm-modal-header {
+  border-bottom: 1px solid #f3f4f6;
+  padding: 20px 24px 16px;
+}
+
+.stm-modal-header .modal-title,
+.stm-modal-header h4 {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin: 0 !important;
+}
+
+.stm-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.stm-modal-body {
+  padding: 24px;
+}
+
+/* ─── Fields ──────────────────────────────────────────────────────────────── */
+
+.stm-field {
+  margin-bottom: 20px;
+}
+
+.stm-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stm-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.stm-required {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+/* ─── Inputs ──────────────────────────────────────────────────────────────── */
+
+.stm-input,
+.stm-select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  color: #374151;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+  box-sizing: border-box;
+  appearance: auto;
+}
+
+.stm-input:focus,
+.stm-select:focus {
+  border-color: #7b1113;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(123, 17, 19, 0.08);
+}
+
+/* ─── Read-only ───────────────────────────────────────────────────────────── */
+
+.stm-readonly {
+  padding: 9px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #6b7280;
+  background: #f3f4f6;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ─── Info Box ────────────────────────────────────────────────────────────── */
+
+.stm-info-box {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 8px;
+}
+
+.stm-info-box__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.stm-info-box__list {
+  font-size: 14px;
+  color: #6b7280;
+  padding-left: 20px;
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* ─── Actions ─────────────────────────────────────────────────────────────── */
+
+.stm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.stm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: none;
+  white-space: nowrap;
+}
+
+.stm-btn--cancel {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+}
+
+.stm-btn--cancel:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.stm-btn--submit {
+  background: #236a27;
+  color: #fff;
+}
+
+.stm-btn--submit:hover {
+  background: #1a5c1e;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 576px) {
+  .stm-modal-body { padding: 16px; }
+  .stm-row { grid-template-columns: 1fr; }
+  .stm-actions { flex-direction: column-reverse; }
+  .stm-btn { width: 100%; justify-content: center; }
+}

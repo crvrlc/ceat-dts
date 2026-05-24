@@ -1,0 +1,106 @@
+.cdm-header {
+  border-bottom: 1px solid #f3f4f6;
+  padding: 18px 20px 14px;
+}
+
+.cdm-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.cdm-body {
+  padding: 24px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.cdm-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.cdm-message {
+  font-size: 14px;
+  color: #374151;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.cdm-sub {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.cdm-footer {
+  border-top: 1px solid #f3f4f6;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cdm-btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: none;
+}
+
+.cdm-btn--cancel {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+}
+
+.cdm-btn--cancel:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.cdm-btn--delete {
+  background: #dc2626;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cdm-btn--delete:hover:not(:disabled) {
+  background: #b91c1c;
+}
+
+.cdm-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cdm-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: cdm-spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes cdm-spin {
+  to { transform: rotate(360deg); }
+}
