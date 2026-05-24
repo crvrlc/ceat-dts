@@ -47,7 +47,6 @@ function StatusBadge({ status }) {
 
 function ProgressBar({ currentStatus, activityLogs }) {
   const isRejected = currentStatus === 'rejected';
-  const isReleased = currentStatus === 'released';
 
   const rejectedAtIndex = isRejected
     ? (() => {

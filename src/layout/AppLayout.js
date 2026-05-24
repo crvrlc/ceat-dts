@@ -8,7 +8,6 @@ import "../css/Layout.css";
 export default function AppLayout() {
   const [collapsed, setCollapsed] = useState(() => window.innerWidth <= 768);
   const { user, isAdmin, isStaff } = useAuth();
-  const isStudent = !isAdmin && !isStaff;
 
   return (
   <>

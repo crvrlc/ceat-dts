@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { useState } from 'react';
 import { List, FileText, ChevronDown } from "react-bootstrap-icons";
 import Dropdown from 'react-bootstrap/Dropdown';
 import "../css/Header.css";
