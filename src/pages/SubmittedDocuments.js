@@ -10,7 +10,7 @@ import '../css/SubmittedDocuments.css';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const PAGE_SIZE = 5;
+const PAGE_SIZE = 10;
 
 const STATUS_STYLES = {
   submitted:      { bg: '#fef6e0', text: '#7a4f00', dot: '#f5a800' },
