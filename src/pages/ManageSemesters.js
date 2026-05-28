@@ -70,6 +70,7 @@ export default function ManageSemesters() {
     });
     setEditingId(semester.id);
     setShowForm(true);
+    windoe.scrollTo({ top: 0, behavior: 'smooth' });  
   };
 
   const handleSetCurrent = async (id) => {

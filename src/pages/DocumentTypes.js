@@ -48,6 +48,7 @@ export default function DocumentTypes() {
     setFormData({ name: '', code: '', isActive: true, staffId: '' });
     setEditingId(null);
     setShowForm(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
   };
 
   const handleEdit = (docType) => {
@@ -60,6 +61,7 @@ export default function DocumentTypes() {
     });
     setEditingId(docType.id);
     setShowForm(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
   };
 
   const handleDelete = (docType) => { setSelectedType(docType); setShowDeleteModal(true); };
