@@ -47,7 +47,7 @@ export default function ActivityLogs() {
         params: {
           page,
           limit: PAGE_SIZE,
-          trackingCode: search || undefined,
+          search: search || undefined,
           dateFrom:     from   || undefined,
           dateTo:       to     || undefined,
         }
@@ -100,8 +100,7 @@ export default function ActivityLogs() {
       <div className="al-header">
         <div>
           <h2 className="al-title">Activity Logs</h2>
-          <p className="al-subtitle">Full audit trail of all document actions</p>
-        </div>
+            <p className="al-subtitle">Full audit trail of all system actions</p>        </div>
       </div>
 
       {/* Filters */}
@@ -112,7 +111,7 @@ export default function ActivityLogs() {
             <input
               type="text"
               className="al-filter-input al-filter-input--search"
-              placeholder="Search by tracking code..."
+              placeholder="Search by tracking code or performed by..."
               value={searchInput}
               onChange={e => setSearchInput(e.target.value)}
             />
@@ -182,9 +181,12 @@ export default function ActivityLogs() {
                     <tr key={log.id} className={i % 2 === 0 ? 'al-table__row--even' : ''}>
                       <td className="al-date">{formatDate(log.createdAt)}</td>
                       <td>
-                        <span className="al-tracking-code">
-                          {log.document?.trackingCode || <span className="al-unassigned">—</span>}
-                        </span>
+                        {log.document?.trackingCode
+                          ? <span className="al-tracking-code">{log.document.trackingCode}</span>
+                          : log.entityType
+                            ? <span className="al-entity-badge">{log.entityType.replace('_', ' ')}</span>
+                            : <span className="al-unassigned">—</span>
+                        }
                       </td>
                       <td className="al-action">{log.action || <span className="al-unassigned">—</span>}</td>
                       <td><StatusBadge status={log.toStatus} /></td>
