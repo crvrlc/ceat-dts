@@ -48,7 +48,9 @@ export default function DocumentTypes() {
     setFormData({ name: '', code: '', isActive: true, staffId: '' });
     setEditingId(null);
     setShowForm(true);
-    document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 50);
   };
 
   const handleEdit = (docType) => {
@@ -61,7 +63,9 @@ export default function DocumentTypes() {
     });
     setEditingId(docType.id);
     setShowForm(true);
-    document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 50);
   };
 
   const handleDelete = (docType) => { setSelectedType(docType); setShowDeleteModal(true); };

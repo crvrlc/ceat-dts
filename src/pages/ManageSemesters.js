@@ -70,7 +70,9 @@ export default function ManageSemesters() {
     });
     setEditingId(semester.id);
     setShowForm(true);
-    document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' }); 
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 50);
   };
 
   const handleSetCurrent = async (id) => {
