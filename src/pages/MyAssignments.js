@@ -185,8 +185,8 @@ export default function MyAssignments() {
     if (filters.status === 'all') {
       // show everything
     } else if (!filters.status) {
-      // default — hide completed, released, rejected
-      result = result.filter(d => !['completed', 'released', 'rejected'].includes(d.status));
+      // default — only hide released
+      result = result.filter(d => d.status !== 'released');
     } else {
       result = result.filter(d => d.status === filters.status);
     }
