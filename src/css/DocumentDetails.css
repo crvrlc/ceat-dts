@@ -392,6 +392,87 @@
   max-width: 300px;
 }
 
+/* ─── Action Required ───────────────────────────────────────────────────── */
+.dd-card--action-required {
+  border: 2px solid #ffc107;
+}
+
+.dd-action-remarks {
+  background: #fff3cd;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.dd-action-remarks__label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #856404;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.dd-action-remarks__text {
+  font-size: 14px;
+  color: #374151;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.dd-action-responded {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1a5c1e;
+  font-size: 14px;
+  font-weight: 500;
+  background: #e6f2e7;
+  padding: 12px 16px;
+  border-radius: 8px;
+}
+
+.dd-action-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dd-action-upload__label {
+  font-size: 13px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.dd-file-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px dashed #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.dd-file-input {
+  display: none;
+}
+
+.dd-responded-badge {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 2px 10px;
+  background: #e6f2e7;
+  color: #1a5c1e;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+
 /* ─── Activity Timeline ───────────────────────────────────────────────────── */
 
 .dd-timeline {
@@ -521,5 +602,44 @@
     overflow-x: auto;
     padding-bottom: 8px;
   
+  }
+
+  .dd-action-upload {
+    gap: 10px;
+  }
+
+  .dd-file-label {
+    flex-wrap: wrap;
+  }
+
+  .dd-file-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .dd-file-card__name {
+    max-width: 100%;
+  }
+
+  .dd-file-card .dd-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dd-action-responded {
+    font-size: 13px;
+  }
+
+  .dd-responded-badge {
+    display: block;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .dd-card__label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 }

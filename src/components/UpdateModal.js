@@ -9,6 +9,7 @@ const STATUS_LABELS = {
   submitted:     'Submitted',
   received:      'Received',
   processing:    'Processing',
+  action_required:  'Action Required',
   for_signature: 'For Signature',
   completed:     'Completed',
   released:      'Released',
@@ -86,6 +87,11 @@ export default function UpdateModal({ show, onHide, document, onSuccess }) {
 
     if (formData.status === 'rejected' && !formData.remarks?.trim()) {
       setError('Please provide a reason for rejection in the remarks field.');
+      return;
+    }
+
+    if (formData.status === 'action_required' && !formData.remarks?.trim()) {
+      setError('Please provide instructions for the student in the remarks field.');
       return;
     }
 
@@ -197,7 +203,9 @@ export default function UpdateModal({ show, onHide, document, onSuccess }) {
               <p className="um-hint">
                 {formData.status === 'completed' || formData.status === 'released'
                   ? 'Upload the final processed document. This will be available to the student.'
-                  : 'Upload an updated version of the document if changes were made.'}
+                  : formData.status === 'action_required'
+                    ? 'Attach a file requiring student action (optional).'
+                    : 'Upload an updated version of the document if changes were made.'}
               </p>
             </div>
           )}
@@ -217,13 +225,22 @@ export default function UpdateModal({ show, onHide, document, onSuccess }) {
           {/* Remarks */}
           <div className="um-field">
             <label className="um-label">
-              Remarks <span className="um-optional">(optional)</span>
+              {formData.status === 'action_required'
+                ? <>Instructions for Student <span className="um-required">*</span></>
+                : <>Remarks <span className="um-optional">(optional)</span></>
+              }
             </label>
             <textarea
               className="um-textarea"
               name="remarks"
               rows={3}
-              placeholder="Add notes, next steps, or rejection reason..."
+              placeholder={
+                formData.status === 'action_required'
+                  ? 'Describe what the student needs to do...'
+                  : formData.status === 'rejected'
+                    ? 'Provide a reason for rejection...'
+                    : 'Add notes, next steps, or rejection reason...'
+              }
               value={formData.remarks}
               onChange={handleChange}
             />

@@ -5,6 +5,7 @@ import UpdateModal from '../components/UpdateModal';
 import ConfirmDeleteModal from '../components/ConfirmDeleteModal';
 import documentService from '../services/documentService';
 import toast from 'react-hot-toast';
+import api from '../utils/api';
 import '../css/DocumentDetails.css';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -15,6 +16,7 @@ const STATUS_LABELS = {
   submitted:     'Submitted',
   received:      'Received',
   processing:    'Processing',
+  action_required:  'Action Required',
   for_signature: 'For Signature',
   completed:     'Completed',
   released:      'Released',
@@ -25,6 +27,7 @@ const STATUS_COLORS = {
   submitted:     { bg: '#fef6e0', text: '#7a4f00', dot: '#f5a800' },
   received:      { bg: '#dbeafe', text: '#1e40af', dot: '#3b82f6' },
   processing:    { bg: '#ede9fe', text: '#4c1d95', dot: '#8b5cf6' },
+  action_required:  { bg: '#fff3cd', text: '#856404', dot: '#ffc107' },
   for_signature: { bg: '#f5e6e8', text: '#7b1113', dot: '#7b1113' },
   completed:     { bg: '#e6f2e7', text: '#1a5c1e', dot: '#236a27' },
   released:      { bg: '#d1fae5', text: '#065f46', dot: '#10b981' },
@@ -178,6 +181,7 @@ function ActivityTimeline({ logs, isStudent, releaseMethod }) {
     submitted:     'Your document has been submitted successfully.',
     received:      'Your document has been received at the office.',
     processing:    'Your document is currently being processed.',
+    action_required:  'Action is required from you. Please check the remarks.',
     for_signature: 'Your document is being reviewed for signature.',
     completed:     releaseMethod === 'online'
       ? 'Your document has been completed and will be released shortly.'
@@ -238,6 +242,103 @@ function ActivityTimeline({ logs, isStudent, releaseMethod }) {
           </div>
         );
       })}
+    </div>
+  );
+}
+
+// ─── Action Required Section ────────────────────────────────────────────────────────
+function ActionRequiredSection({ document, onRevisionSubmitted }) {
+  const [file, setFile] = useState(null);
+  const [fileName, setFileName] = useState('');
+  const [uploading, setUploading] = useState(false);
+
+  const handleSubmitRevision = async () => {
+    setUploading(true);
+    try {
+      const formData = new FormData();
+      if (file) formData.append('file', file);
+
+      await api.patch(`/documents/${document.id}/revise`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+
+      toast.success('Response submitted successfully!');
+      onRevisionSubmitted();
+    } catch (err) {
+      toast.error(err.response?.data?.message || 'Failed to submit response');
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  return (
+    <div className="dd-card dd-card--action-required">
+      <div className="dd-card__label">Action Required</div>
+
+      {/* Staff instructions */}
+      {document.remarks && (
+        <div className="dd-action-remarks">
+          <div className="dd-action-remarks__label">Instructions from Staff</div>
+          <p className="dd-action-remarks__text">{document.remarks}</p>
+        </div>
+      )}
+
+      {/* File from staff (optional) */}
+      {document.actionRequiredFileUrl && (
+        <div className="dd-file-card" style={{ marginBottom: 16 }}>
+          <div className="dd-file-card__left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            <span className="dd-file-card__name">
+              {document.actionRequiredFileName || document.actionRequiredFileUrl?.split('/').pop()}
+            </span>
+          </div>
+          <a className="dd-btn dd-btn--outline" href={document.actionRequiredFileUrl} target="_blank" rel="noreferrer">
+            Download File
+          </a>
+        </div>
+      )}
+
+      {/* Already responded */}
+      {document.revisedFileUrl ? (
+        <div className="dd-action-responded">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5c1e" strokeWidth="2.5">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          <span>You have already submitted a response. Waiting for staff to review.</span>
+        </div>
+      ) : (
+        /* Upload revised file */
+        <div className="dd-action-upload">
+          <div className="dd-action-upload__label">Upload your revised file (optional)</div>
+          <label className="dd-file-label">
+            <input
+              type="file"
+              accept=".pdf"
+              className="dd-file-input"
+              onChange={e => {
+                setFile(e.target.files[0]);
+                setFileName(e.target.files[0]?.name || '');
+              }}
+            />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <span>{fileName || 'Choose file...'}</span>
+          </label>
+          <button
+            className="dd-btn dd-btn--update"
+            onClick={handleSubmitRevision}
+            disabled={uploading}
+          >
+            {uploading ? 'Submitting...' : 'Submit Response'}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -399,6 +500,14 @@ export default function DocumentDetails() {
           </div>
         )}
 
+        {/* Student: Action Required section */}
+        {isStudent && document.status === 'action_required' && (
+          <ActionRequiredSection
+            document={document}
+            onRevisionSubmitted={fetchDocument}
+          />
+        )}
+
         {/* Student: final document (only when completed/released) */}
         {isStudent && document.scannedFileUrl && ['completed', 'released'].includes(document.status) && (
           <div className="dd-card">
@@ -458,6 +567,30 @@ export default function DocumentDetails() {
                 </span>
               </div>
               <a className="dd-btn dd-btn--outline" href={document.scannedFileUrl} target="_blank" rel="noreferrer">
+                View File
+              </a>
+            </div>
+          </div>
+        )}
+
+        {/* Staff: Student's revised file */}
+        {!isStudent && document.revisedFileUrl && (
+          <div className="dd-card">
+            <div className="dd-card__label">
+              Student Response
+              <span className="dd-responded-badge">Student has responded</span>
+            </div>
+            <div className="dd-file-card">
+              <div className="dd-file-card__left">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <span className="dd-file-card__name">
+                  {document.revisedFileName || document.revisedFileUrl?.split('/').pop()}
+                </span>
+              </div>
+              <a className="dd-btn dd-btn--outline" href={document.revisedFileUrl} target="_blank" rel="noreferrer">
                 View File
               </a>
             </div>
