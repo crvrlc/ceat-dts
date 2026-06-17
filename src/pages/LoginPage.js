@@ -73,7 +73,7 @@ export default function LoginPage() {
           <img src={ceat_logo} alt="CEAT Logo" className="login-logo" />
 
           <p className="login-office">CEAT OCS</p>
-          <h1 className="login-heading">Document Tracking System</h1>
+          <h1 className="login-heading">Document Submission & Tracking System</h1>
 
           {/* Status messages */}
           {status === 'unauthorized' && (
@@ -129,7 +129,7 @@ export default function LoginPage() {
 
           <div className="login-credits">
             <small>
-              Developed for CEAT OCS <br />
+              Developed by LCLCervera for CEAT OCS <br />
               © 2026 UPLB College of Engineering and Agro-Industrial Technology
             </small>
           </div>

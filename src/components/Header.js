@@ -39,8 +39,8 @@ export default function Header({ userName, onToggleSidebar }) {
         <img src={ceat_logo} alt="CEAT Logo" className="header-logo" />
 
         <h5 className="header-title">
-          <span className="header-title-full">CEAT OCS Document Tracking System</span>
-          <span className="header-title-short">CEAT OCS DTS</span>
+          <span className="header-title-full">CEAT OCS Document Submission & Tracking System</span>
+          <span className="header-title-short">CEAT OCS DSTS</span>
         </h5>
       </div>
 

@@ -3,6 +3,7 @@ import Sidebar from "../components/Sidebar";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import Footer from "../components/Footer";
 import "../css/Layout.css";
 
 export default function AppLayout() {
@@ -16,6 +17,7 @@ export default function AppLayout() {
       <Sidebar collapsed={collapsed} onClose={() => setCollapsed(true)} />
       <main className={`main-content ${collapsed ? "collapsed" : ""} ${user?.role}`}>
         <Outlet />
+        <Footer />
       </main>
     </div>
   </>
