@@ -253,6 +253,11 @@ function ActionRequiredSection({ document, onRevisionSubmitted }) {
   const [uploading, setUploading] = useState(false);
 
   const handleSubmitRevision = async () => {
+    // inform student that file is required 
+    if (!file) {
+      toast.error('Please attach a file before submitting.');
+      return;
+    }
     setUploading(true);
     try {
       const formData = new FormData();
@@ -302,43 +307,41 @@ function ActionRequiredSection({ document, onRevisionSubmitted }) {
       )}
 
       {/* Already responded */}
-      {document.revisedFileUrl ? (
-        <div className="dd-action-responded">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5c1e" strokeWidth="2.5">
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-          <span>You have already submitted a response. Waiting for staff to review.</span>
-        </div>
-      ) : (
-        /* Upload revised file */
-        <div className="dd-action-upload">
-          <div className="dd-action-upload__label">Upload your revised file (optional)</div>
-          <label className="dd-file-label">
-            <input
-              type="file"
-              accept=".pdf"
-              className="dd-file-input"
-              onChange={e => {
-                setFile(e.target.files[0]);
-                setFileName(e.target.files[0]?.name || '');
-              }}
-            />
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="17 8 12 3 7 8"/>
-              <line x1="12" y1="3" x2="12" y2="15"/>
+        {document.hasRespondedToActionRequired ? (
+          <div className="dd-action-responded">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a5c1e" strokeWidth="2.5">
+              <polyline points="20 6 9 17 4 12" />
             </svg>
-            <span>{fileName || 'Choose file...'}</span>
-          </label>
-          <button
-            className="dd-btn dd-btn--update"
-            onClick={handleSubmitRevision}
-            disabled={uploading}
-          >
-            {uploading ? 'Submitting...' : 'Submit Response'}
-          </button>
-        </div>
-      )}
+            <span>You have already submitted a response. Waiting for staff to review.</span>
+          </div>
+        ) : (
+          <div className="dd-action-upload">
+            <div className="dd-action-upload__label">Upload your revised file <span style={{color:'#ef4444'}}>*</span></div>            <label className="dd-file-label">
+              <input
+                type="file"
+                accept=".pdf"
+                className="dd-file-input"
+                onChange={e => {
+                  setFile(e.target.files[0]);
+                  setFileName(e.target.files[0]?.name || '');
+                }}
+              />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              <span>{fileName || 'Choose file...'}</span>
+            </label>
+            <button
+              className="dd-btn dd-btn--update"
+              onClick={handleSubmitRevision}
+              disabled={uploading}
+            >
+              {uploading ? 'Submitting...' : 'Submit Response'}
+            </button>
+          </div>
+        )}
     </div>
   );
 }
