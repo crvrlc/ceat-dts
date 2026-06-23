@@ -50,6 +50,10 @@ function StatusBadge({ status }) {
 
 function ProgressBar({ currentStatus, activityLogs }) {
   const isRejected = currentStatus === 'rejected';
+  const isActionRequired = currentStatus === 'action_required';
+
+  // treat action_required as still at processing step
+  const effectiveStatus = isActionRequired ? 'processing' : currentStatus;
 
   const rejectedAtIndex = isRejected
     ? (() => {
@@ -64,10 +68,10 @@ function ProgressBar({ currentStatus, activityLogs }) {
 
   const currentIndex = isRejected
     ? rejectedAtIndex
-    : STEPS.indexOf(currentStatus) === -1
+    : STEPS.indexOf(effectiveStatus) === -1
       ? STEPS.length - 1
-      : STEPS.indexOf(currentStatus);
-
+      : STEPS.indexOf(effectiveStatus);
+      
   const fillPct = currentIndex <= 0
     ? '0px'
     : `${(currentIndex / (STEPS.length - 1)) * 100}%`;
@@ -86,21 +90,24 @@ function ProgressBar({ currentStatus, activityLogs }) {
         />
         {STEPS.map((step, i) => {
           const done     = isRejected ? false : i < currentIndex;
-          const active   = !isRejected && i === currentIndex;
+          const active   = !isRejected && i === currentIndex && !isActionRequired;
+          const isActionDot = isActionRequired && step === 'processing';
           const isRejDot = isRejected && i === rejectedAtIndex;
           const faded    = isRejected && i !== rejectedAtIndex;
 
           let dotClass = 'dd-progress-dot';
-          if (done)     dotClass += ' dd-progress-dot--done';
-          if (active)   dotClass += ' dd-progress-dot--active';
-          if (isRejDot) dotClass += ' dd-progress-dot--rejected';
+          if (done)          dotClass += ' dd-progress-dot--done';
+          if (active)        dotClass += ' dd-progress-dot--active';
+          if (isRejDot)      dotClass += ' dd-progress-dot--rejected';
+          if (isActionDot)   dotClass += ' dd-progress-dot--action';
           if (faded && !isRejDot) dotClass += ' dd-progress-dot--faded';
 
           let labelClass = 'dd-progress-label';
-          if (done)     labelClass += ' dd-progress-label--done';
-          if (active)   labelClass += ' dd-progress-label--active';
-          if (isRejDot) labelClass += ' dd-progress-label--rejected';
-          if (faded)    labelClass += ' dd-progress-label--faded';
+          if (done)          labelClass += ' dd-progress-label--done';
+          if (active)        labelClass += ' dd-progress-label--active';
+          if (isRejDot)      labelClass += ' dd-progress-label--rejected';
+          if (isActionDot)   labelClass += ' dd-progress-label--action';
+          if (faded)         labelClass += ' dd-progress-label--faded';
 
           return (
             <div key={step} className="dd-progress-step">
@@ -116,16 +123,38 @@ function ProgressBar({ currentStatus, activityLogs }) {
                     <line x1="6" y1="6" x2="18" y2="18" />
                   </svg>
                 )}
-                {!done && !isRejDot && (
+                {isActionDot && (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3">
+                    <line x1="12" y1="8" x2="12" y2="12"/>
+                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                  </svg>
+                )}
+                {!done && !isRejDot && !isActionDot && (
                   <div className={`dd-progress-inner${active ? ' dd-progress-inner--active' : ''}`} />
                 )}
               </div>
-              <span className={labelClass}>{STATUS_LABELS[step]}</span>
+              <span className={labelClass}>{isActionDot ? 'Action Required' : STATUS_LABELS[step]}</span>
             </div>
           );
         })}
       </div>
+      
+      {/* action required banner */}
+      {isActionRequired && (
+        <div className="dd-action-banner">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#856404" strokeWidth="2.5" style={{ flexShrink: 0, marginTop: 2 }}>
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <div>
+            <div className="dd-action-banner__title">Action Required</div>
+            <div className="dd-action-banner__desc">This document requires action from the student before processing can continue.</div>
+          </div>
+        </div>
+      )}
 
+      {/* rejected banner */}
       {isRejected && rejectionEntry && (
         <div className="dd-rejected-banner">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#991b1b" strokeWidth="2.5" style={{ flexShrink: 0, marginTop: 2 }}>

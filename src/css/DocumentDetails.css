@@ -267,6 +267,17 @@
 .dd-progress-dot--active   { background: #236a27; border-color: #236a27; box-shadow: 0 0 0 5px rgba(35, 106, 39, 0.15); }
 .dd-progress-dot--rejected { background: #ef4444; border-color: #ef4444; box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.15); }
 
+.dd-progress-dot--action {
+  background: #ffc107;
+  border-color: #ffc107;
+  box-shadow: 0 0 0 5px rgba(255, 193, 7, 0.15);
+}
+
+.dd-progress-label--action {
+  font-weight: 700;
+  color: #856404;
+}
+
 .dd-progress-inner {
   width: 10px;
   height: 10px;
@@ -297,6 +308,8 @@
   color: #d1d5db;
 }
 
+/* ─── Rejected Banner ───────────────────────────────────────────────────────────── */
+
 .dd-rejected-banner {
   margin-top: 16px;
   padding: 14px 16px;
@@ -320,6 +333,32 @@
   font-size: 13px;
   /* color: #7f1d1d; */
   font-weight: 400;
+}
+
+/* ─── Action Banner ───────────────────────────────────────────────────────────── */
+
+.dd-action-banner {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-left: 4px solid #ffc107;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.dd-action-banner__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #856404;
+  margin-bottom: 2px;
+}
+
+.dd-action-banner__desc {
+  font-size: 13px;
+  color: #7a4f00;
 }
 
 /* ─── Info Grid ───────────────────────────────────────────────────────────── */
@@ -602,6 +641,11 @@
     overflow-x: auto;
     padding-bottom: 8px;
   
+  }
+
+  .dd-action-banner {
+    flex-direction: column;
+    gap: 8px;
   }
 
   .dd-action-upload {
