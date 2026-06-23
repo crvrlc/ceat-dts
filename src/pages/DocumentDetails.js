@@ -24,7 +24,7 @@ const STATUS_LABELS = {
 };
 
 const STATUS_COLORS = {
-  submitted:     { bg: '#fef6e0', text: '#7a4f00', dot: '#f5a800' },
+  submitted:      { bg: '#f3f4f6', text: '#4b5563', dot: '#9ca3af' },
   received:      { bg: '#dbeafe', text: '#1e40af', dot: '#3b82f6' },
   processing:    { bg: '#ede9fe', text: '#4c1d95', dot: '#8b5cf6' },
   action_required:  { bg: '#fff3cd', text: '#856404', dot: '#ffc107' },
@@ -48,7 +48,7 @@ function StatusBadge({ status }) {
 
 // ─── Progress Bar ─────────────────────────────────────────────────────────────
 
-function ProgressBar({ currentStatus, activityLogs }) {
+function ProgressBar({ currentStatus, activityLogs, hasResponded, isStudent }) {
   const isRejected = currentStatus === 'rejected';
   const isActionRequired = currentStatus === 'action_required';
 
@@ -149,7 +149,14 @@ function ProgressBar({ currentStatus, activityLogs }) {
           </svg>
           <div>
             <div className="dd-action-banner__title">Action Required</div>
-            <div className="dd-action-banner__desc">This document requires action from the student before processing can continue.</div>
+            <div className="dd-action-banner__desc">
+              {isStudent
+                ? hasResponded
+                  ? 'Your response has been submitted and is awaiting review by the office.'
+                  : 'The office has requested additional action for this document. Please review the instructions below and submit the requested file.'
+                : 'This document requires action from the student before processing can continue.'
+              }
+            </div>
           </div>
         </div>
       )}
@@ -502,6 +509,8 @@ export default function DocumentDetails() {
           <ProgressBar
             currentStatus={document.status}
             activityLogs={document.activityLogs || []}
+            hasResponded={document.hasRespondedToActionRequired}
+            isStudent={isStudent}
           />
         </div>
 

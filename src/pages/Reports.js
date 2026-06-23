@@ -12,8 +12,7 @@ const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'
 const getMonthName = (m) => MONTH_NAMES[(m ?? 1) - 1] ?? m;
 
 const STATUS_CONFIG = {
-  submitted:     { label: 'Submitted',     bg: '#fef6e0', text: '#7a4f00', dot: '#f5a800' },
-  received:      { label: 'Received',      bg: '#dbeafe', text: '#1e40af', dot: '#3b82f6' },
+  submitted: { bg: '#f3f4f6', text: '#4b5563', dot: '#9ca3af' },  received:      { label: 'Received',      bg: '#dbeafe', text: '#1e40af', dot: '#3b82f6' },
   processing:    { label: 'Processing',    bg: '#ede9fe', text: '#4c1d95', dot: '#8b5cf6' },
   for_signature: { label: 'For Signature', bg: '#f5e6e8', text: '#7b1113', dot: '#7b1113' },
   completed:     { label: 'Completed',     bg: '#e6f2e7', text: '#1a5c1e', dot: '#236a27' },

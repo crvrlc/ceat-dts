@@ -3,8 +3,7 @@ import api from '../utils/api';
 import '../css/ActivityLogs.css';
 
 const STATUS_COLORS = {
-  submitted:     { bg: '#fef6e0', text: '#7a4f00', dot: '#f5a800' },
-  received:      { bg: '#dbeafe', text: '#1e40af', dot: '#3b82f6' },
+  submitted: { bg: '#f3f4f6', text: '#4b5563', dot: '#9ca3af' },  received:      { bg: '#dbeafe', text: '#1e40af', dot: '#3b82f6' },
   processing:    { bg: '#ede9fe', text: '#4c1d95', dot: '#8b5cf6' },
   for_signature: { bg: '#f5e6e8', text: '#7b1113', dot: '#7b1113' },
   completed:     { bg: '#e6f2e7', text: '#1a5c1e', dot: '#236a27' },

@@ -13,8 +13,7 @@ import '../css/SubmittedDocuments.css';
 const PAGE_SIZE = 10;
 
 const STATUS_STYLES = {
-  submitted:      { bg: '#fef6e0', text: '#7a4f00', dot: '#f5a800' },
-  received:       { bg: '#dbeafe', text: '#1e40af', dot: '#3b82f6' },
+  submitted: { bg: '#f3f4f6', text: '#4b5563', dot: '#9ca3af' },  received:       { bg: '#dbeafe', text: '#1e40af', dot: '#3b82f6' },
   processing:     { bg: '#ede9fe', text: '#4c1d95', dot: '#8b5cf6' },
   action_required:  { bg: '#fff3cd', text: '#856404', dot: '#ffc107' },
   for_signature:  { bg: '#f5e6e8', text: '#7b1113', dot: '#7b1113' },
